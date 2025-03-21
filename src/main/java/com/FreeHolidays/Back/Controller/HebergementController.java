@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/v1")
 public class HebergementController {
 
     @Autowired
@@ -26,6 +26,13 @@ public class HebergementController {
         Optional<Hebergement> hebergement = hebergementService.getHebergementById(id_auto);
         return hebergement.orElse(null);
     }
+
+
+        /*Récupérer tous les hebergements*/
+        @GetMapping("/Entities/Hebergement")
+        public Iterable<Hebergement> getHebergment() {
+            return hebergementService.getHebergemnt();
+        }
     
     
 }
